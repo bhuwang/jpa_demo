@@ -26,15 +26,13 @@ public class JPADemo {
 		// Begin transaction
 		em.getTransaction().begin();
 
-		// add(em);
-		update(em);
+		add(em);
+		// update(em);
 		// select(em);
 		// delete(em);
 
 		// Commit transaction
 		em.getTransaction().commit();
-		emf.close();
-		em.close();
 	}
 
 	private static void add(EntityManager em) {
