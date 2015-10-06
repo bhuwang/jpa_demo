@@ -24,11 +24,11 @@ public class JPADemo {
 		// Begin transaction
 		em.getTransaction().begin();
 
-		add(em);
-		//update(em);
-		//select(em);
-		//delete(em);
-		
+		// add(em);
+		update(em);
+		// select(em);
+		// delete(em);
+
 		// Commit transaction
 		em.getTransaction().commit();
 	}
@@ -43,10 +43,13 @@ public class JPADemo {
 	}
 
 	private static void update(EntityManager em) {
-		Staff staff = em.find(Staff.class, 1);
+		Staff staff = em.find(Staff.class, 4);
 		staff.setName("Bhuwaneshwor Gautam");
+		staff.setAddress("Kapan Kathmandu");
 		// update staff name
-		em.merge(staff);
+		// In the code below there is no merge. Working with Hibernate means
+		// working with objects and states
+		// em.merge(staff);
 	}
 
 	private static void select(EntityManager em) {
