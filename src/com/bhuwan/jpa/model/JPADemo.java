@@ -17,6 +17,8 @@ public class JPADemo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		// Entity manager doesnot have autoclosable interface implementation so
+		// cannot use try-with-resource here.
 		EntityManagerFactory emf = Persistence
 				.createEntityManagerFactory("jpa_demo");
 		EntityManager em = emf.createEntityManager();
@@ -31,6 +33,8 @@ public class JPADemo {
 
 		// Commit transaction
 		em.getTransaction().commit();
+		emf.close();
+		em.close();
 	}
 
 	private static void add(EntityManager em) {
